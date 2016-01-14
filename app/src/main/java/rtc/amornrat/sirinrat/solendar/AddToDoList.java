@@ -43,6 +43,12 @@ public class AddToDoList extends AppCompatActivity {
         if (todoString.equals("")) {
             Toast.makeText(AddToDoList.this, "กรุณากรอกในช่องว่าง",Toast.LENGTH_SHORT).show();
         } else {
+
+            //Have Data
+            ManageTABLE objManageTABLE = new ManageTABLE(this);
+            objManageTABLE.addToDoList(showDateString, todoString);
+            Toast.makeText(AddToDoList.this,"บันทึกสำเร็จ", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }//clickSaveData
 
