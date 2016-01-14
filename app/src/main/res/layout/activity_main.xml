@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg3">
 
     <ImageView
         android:id="@+id/addJournalEntry"
@@ -20,7 +20,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:background="@drawable/button_blue_background"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
     </Button>
 
     <LinearLayout
@@ -50,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </ImageView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -83,7 +85,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mon"
+            android:text="Wed"
             android:id="@+id/textView3"
             android:textSize="@dimen/h2"
             android:textStyle="bold"
@@ -93,7 +95,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mon"
+            android:text="Thu"
             android:id="@+id/textView4"
             android:textSize="@dimen/h2"
             android:textStyle="bold"
@@ -103,7 +105,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mon"
+            android:text="Fri"
             android:id="@+id/textView5"
             android:textSize="@dimen/h2"
             android:textStyle="bold"
@@ -113,7 +115,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mon"
+            android:text="Sat"
             android:id="@+id/textView6"
             android:textSize="@dimen/h2"
             android:textStyle="bold"
@@ -123,7 +125,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mon"
+            android:text="Sun"
             android:id="@+id/textView7"
             android:textSize="@dimen/h2"
             android:textStyle="bold"
