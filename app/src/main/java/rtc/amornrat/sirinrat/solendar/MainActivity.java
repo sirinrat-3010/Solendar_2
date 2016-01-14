@@ -84,6 +84,14 @@ public class MainActivity extends Activity implements OnClickListener {
         adapter.notifyDataSetChanged();
         calendarView.setAdapter(adapter);
 
+    }//Main Method
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        connectedDatabase();
+
     }
 
     private void connectedDatabase() {
@@ -283,9 +291,16 @@ public class MainActivity extends Activity implements OnClickListener {
             String[] resultStrings = objManageTABLE.searchDate(date_month_year);
             Log.d("Solendar", "Have " + resultStrings[1]);
 
-            Intent objIntent = new Intent(MainActivity.this, ShowToDoList.class);
-            objIntent.putExtra("Date", date_month_year);
-            startActivity(objIntent);
+            if (resultStrings[1] != null) {
+
+                Intent objIntent = new Intent(MainActivity.this, ShowToDoList.class);
+                objIntent.putExtra("Date", date_month_year);
+                startActivity(objIntent);
+            } else {
+                myAlertDialog(date_month_year);
+            }
+
+
 
         } catch (Exception e) {
             myAlertDialog(date_month_year);

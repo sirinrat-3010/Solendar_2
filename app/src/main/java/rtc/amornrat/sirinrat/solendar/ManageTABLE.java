@@ -61,11 +61,14 @@ public class ManageTABLE {
                 }   //if2
             }   // if1
 
+            objCursor.close();
+            return resultStrings;
+
         } catch (Exception e) {
             return null;
         }
 
-        return new String[0];
+        //return new String[0];
     }
 
 }   // Main Class
