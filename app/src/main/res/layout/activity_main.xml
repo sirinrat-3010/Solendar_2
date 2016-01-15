@@ -35,23 +35,25 @@
             android:src="@drawable/left_cal_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="24dp">
         </ImageView>
         <Button
             android:id="@+id/currentMonth"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:background="@drawable/button_blue_background"
+            android:background="@drawable/bg123"
             android:layout_width="250dp"
-            android:layout_height="105dp"
-            android:layout_weight="0.85">
+            android:layout_height="60dp"
+            android:layout_weight="0.85"
+            android:layout_marginTop="15dp">
         </Button>
         <ImageView
             android:id="@+id/nextMonth"
             android:src="@drawable/right_cal_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="1dp">
         </ImageView>
 
     </LinearLayout>

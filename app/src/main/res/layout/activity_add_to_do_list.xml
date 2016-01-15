@@ -51,5 +51,7 @@
         android:onClick="clickSaveData"
         android:text="Save "
         android:id="@+id/button"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:textColor="#000000"
+        android:textStyle="bold|italic" />
 </RelativeLayout>
