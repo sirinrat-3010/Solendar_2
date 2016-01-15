@@ -16,7 +16,8 @@
         android:padding="20dp"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_below="@+id/txtShowDate">
+        android:layout_below="@+id/txtShowDate"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,11 +26,12 @@
             android:id="@+id/textView11"
             android:textSize="25sp"
             android:textStyle="italic"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000" />
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="323dp"
+            android:layout_height="379dp"
             android:id="@+id/listView"
             android:background="#82ffffff" />
 
@@ -41,7 +43,9 @@
         android:onClick="clickAddToDo"
         android:text="Add To Do"
         android:id="@+id/button2"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:textColor="#000000"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +53,8 @@
         android:text="New Text"
         android:id="@+id/txtShowDate"
         android:textSize="@dimen/h1"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000" />
 
 </RelativeLayout>

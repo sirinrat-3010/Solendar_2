@@ -20,8 +20,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
@@ -71,13 +74,18 @@ public class MainActivity extends Activity implements OnClickListener {
         month = _calendar.get(Calendar.MONTH);
         year = _calendar.get(Calendar.YEAR);
 
-        selectedDayMonthYearButton = (Button) this.findViewById(R.id.selectedDayMonthYear);
+
 
         prevMonth = (ImageView) this.findViewById(R.id.prevMonth);
         prevMonth.setOnClickListener(this);
 
         currentMonth = (Button) this.findViewById(R.id.currentMonth);
-        currentMonth.setText(_calendar.getTime().toString());
+
+        //Find Current Date
+        DateFormat myDateFormat = new SimpleDateFormat("dd / MMMM / yyyy");
+        Date currentDate = new Date();
+        String strCurrentDate = myDateFormat.format(currentDate);
+        currentMonth.setText(strCurrentDate);
 
         nextMonth = (ImageView) this.findViewById(R.id.nextMonth);
         nextMonth.setOnClickListener(this);
