@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
- * Created by masterUNG on 1/14/16 AD.
+ * Created by sirinrat on 1/14/16 AD.
  */
 public class ManageTABLE {
 

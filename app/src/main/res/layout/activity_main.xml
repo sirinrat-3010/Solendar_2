@@ -34,7 +34,8 @@
             android:id="@+id/prevMonth"
             android:src="@drawable/left_cal_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
         </ImageView>
         <Button
             android:id="@+id/currentMonth"
@@ -48,7 +49,8 @@
             android:id="@+id/nextMonth"
             android:src="@drawable/right_cal_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
         </ImageView>
 
     </LinearLayout>

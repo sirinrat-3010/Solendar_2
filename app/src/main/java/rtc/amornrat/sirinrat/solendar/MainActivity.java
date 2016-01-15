@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,6 +62,9 @@ public class MainActivity extends Activity implements OnClickListener {
         //Connected Database
         connectedDatabase();
 
+        //findDate Notification
+        findDateNotification();
+
 
 
         _calendar = Calendar.getInstance(Locale.getDefault());
@@ -85,6 +90,23 @@ public class MainActivity extends Activity implements OnClickListener {
         calendarView.setAdapter(adapter);
 
     }//Main Method
+
+    private void findDateNotification() {
+
+      //read all column Date
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
+                MODE_PRIVATE, null);
+        Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM todoTABLE", null);
+        String[] databaseDateStrings = new String[objCursor.getCount()];
+        objCursor.moveToFirst();
+        for (int i=0;i<objCursor.getCount();i++) {
+            databaseDateStrings[i] = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.DATABASE_Date));
+            Log.d("Solendar", "Date[" + Integer.toString(i) + "] =" + databaseDateStrings[i]);
+            objCursor.moveToNext();
+
+        }//for
+        objCursor.close();
+    }//
 
     @Override
     protected void onRestart() {
@@ -279,6 +301,8 @@ public class MainActivity extends Activity implements OnClickListener {
             Toast.makeText(getApplicationContext(), date_month_year, Toast.LENGTH_SHORT).show();
 
             checkDatabase(date_month_year);
+
+
 
         }   // onClick
     }
