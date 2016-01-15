@@ -264,10 +264,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 gridcell.setTextColor(Color.LTGRAY);
             }
             if (day_color[1].equals("WHITE")) {
-                gridcell.setTextColor(Color.WHITE);
+                gridcell.setTextColor(Color.BLACK);
             }
             if (position == currentDayOfMonth) {
-                gridcell.setTextColor(Color.BLUE);
+                gridcell.setTextColor(Color.BLACK);
             }
 
             return row;
@@ -313,7 +313,7 @@ public class MainActivity extends Activity implements OnClickListener {
         AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
         objBuilder.setIcon(R.drawable.icon_myaccount);
         objBuilder.setTitle("วันนี่ว่าง");
-        objBuilder.setMessage("วันนี่ยังไม่มีข้อมูล ต้องการเพิ่มข้อมูล ไหมคะ ? ");
+        objBuilder.setMessage("วันนี่ยังไม่มีข้อมูล ต้องการเพิ่มข้อมูล เลือก OK ? ");
         objBuilder.setCancelable(false);
         objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

@@ -38,12 +38,11 @@
         </ImageView>
         <Button
             android:id="@+id/currentMonth"
-            android:layout_weight="0.8"
             android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="@drawable/button_blue_background"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="283dp"
+            android:layout_height="105dp">
         </Button>
         <ImageView
             android:id="@+id/nextMonth"
@@ -70,7 +69,8 @@
             android:textSize="@dimen/h2"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:textColor="#e41515" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,7 +130,8 @@
             android:textSize="@dimen/h2"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:textColor="#8d8980" />
     </LinearLayout>
 
     <GridView
