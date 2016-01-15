@@ -4,33 +4,38 @@ package rtc.amornrat.sirinrat.solendar;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ShowToDoList extends AppCompatActivity {
+
     //Explicit
     private TextView showDateTextView;
-    private ListView todoListView;
+    private ListView toDoListView;
     private String showDateString;
+    private String[] strTitle, strID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_to_do_list);
 
-        //bind widget
+        //Bind Widget
         bindWidget();
-       //show date
-        showDate();
 
+        //Show Date
+        showDate();
 
         //Create ListView
         createListView();
 
-    }//Main Method
+    }   // Main Method
 
     public void clickAddToDo(View view) {
 
@@ -39,7 +44,8 @@ public class ShowToDoList extends AppCompatActivity {
         startActivity(objIntent);
         finish();
 
-    }//clickAddToDo
+    }   // clickAddToDo
+
 
     private void createListView() {
 
@@ -48,24 +54,46 @@ public class ShowToDoList extends AppCompatActivity {
 
         Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM todoTABLE WHERE Date = " + "'" + showDateString + "'", null);
         objCursor.moveToFirst();
-        String[] strTitle = new String[objCursor.getCount()];
+        strTitle = new String[objCursor.getCount()];
+        strID = new String[objCursor.getCount()];
 
-        for (int i=0;i<objCursor.getCount();i++) {
+        for (int i = 0; i < objCursor.getCount(); i++) {
 
             strTitle[i] = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.DATABASE_ToDo));
+            strID[i] = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.DATABASE_id));
             objCursor.moveToNext();
 
-        }//for
+        }   // for
         objCursor.close();
 
         MyAdapter objMyAdapter = new MyAdapter(ShowToDoList.this, strTitle);
-        todoListView.setAdapter(objMyAdapter);
+        toDoListView.setAdapter(objMyAdapter);
 
-    }//CreateListview
+        //Active When Click ListView for Delete
+        toDoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Log.d("Solendar1", "Title ==> " + strTitle[i]);
+
+                confirmDelete(strID[i]);
+
+            } // event
+        });
+
+    }   // createListView
+
+    private void confirmDelete(String strID) {
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
+                MODE_PRIVATE, null);
+        objSqLiteDatabase.delete(ManageTABLE.TABLE_TODO, ManageTABLE.DATABASE_id + "=" + Integer.parseInt(strID), null);
+        Toast.makeText(ShowToDoList.this, "Delete OK", Toast.LENGTH_SHORT).show();
+        createListView();
+    }
 
     private void bindWidget() {
         showDateTextView = (TextView) findViewById(R.id.txtShowDate);
-        todoListView = (ListView) findViewById(R.id.listView);
+        toDoListView = (ListView) findViewById(R.id.listView);
     }
 
     private void showDate() {
@@ -73,4 +101,4 @@ public class ShowToDoList extends AppCompatActivity {
         showDateTextView.setText(showDateString);
     }
 
-}//Main Class
+}   // Main Class
