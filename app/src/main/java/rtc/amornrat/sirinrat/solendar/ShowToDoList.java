@@ -1,9 +1,12 @@
 package rtc.amornrat.sirinrat.solendar;
 
+
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +31,15 @@ public class ShowToDoList extends AppCompatActivity {
         createListView();
 
     }//Main Method
+
+    public void clickAddToDo(View view) {
+
+        Intent objIntent = new Intent(ShowToDoList.this, AddToDoList.class);
+        objIntent.putExtra("Date", showDateString);
+        startActivity(objIntent);
+        finish();
+
+    }//clickAddToDo
 
     private void createListView() {
 

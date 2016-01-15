@@ -38,6 +38,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="clickAddToDo"
         android:text="Add To Do"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true" />
